@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Facebook</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <h2><%= link_to 'Facebook', blogs_path %></h2>
+    </header>
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div id="gnavi" class="collapse navbar-collapse clearfix">
+            <ul class="nav navbar-nav clearfix">
+              <li><%= link_to '投稿一覧', blogs_path %></li>
+              <li><%= link_to '新規投稿', new_blog_path %></li>
+              <li><%= link_to 'ログアウト', blogs_path %></li>
+              <li><%= link_to 'ログイン', blogs_path %></li>
+              <li><%= link_to 'サインアップ', blogs_path %></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <%= yield %>
+    <footer>
+      <p>運営会社 Facebook株式会社</p>
+      <p>© 2020 Facebook Corp.</p>
+    </footer>
+  </body>
+</html>
