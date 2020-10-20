@@ -1,5 +1,5 @@
-<h2>新しく投稿する</h2>
-<%= form_with(model: @blog, local: true, url: confirm_blogs_path ) do |form| %>
+<h2>投稿を編集する</h2>
+<%= form_with(model: @blog, local: true, url: blog_path ) do |form| %>
   <% if @blog.errors.any? %>
     <div id="error_explanation">
       <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
@@ -14,9 +14,13 @@
     <%= form.label :content %>
     <br><%= form.text_area :content %>
   </div>
-  <input type="submit" name="commit" value="投稿" data-disable-with="投稿中･･･">
+    <input type="submit" name="commit" value="投稿を編集する" data-disable-with="投稿を編集中･･･">
 <% end %>
 <div class="btn-wrapper">
+  <button class="btn btn-warning">
+    <%= link_to '投稿を削除する', blog_path(@blog.id), method: :delete ,
+    data: { confirm: '本当に削除していいですか？' } %>
+  </button>
   <button class="btn btn-default">
     <%= link_to '投稿一覧に戻る', blogs_path %>
   </button>
