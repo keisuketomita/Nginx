@@ -17,7 +17,7 @@ ul{
 }
 header {
   width: 100%;
-  background-color: #1DA1F2;
+  background-color: #3B5998;
   height: 60px;
   margin: 0 auto;
   color: white;
@@ -63,7 +63,7 @@ h2 a:hover {
 }
 footer {
   width: 100%;
-  background-color: #1DA1F2;
+  background-color: #3B5998;
   padding: 20px 0 10px 0;
   color: white;
   margin: auto;
@@ -81,4 +81,23 @@ th {
 }
 td a {
   color: black;
+}
+.btn a {
+  color: white;
+}
+.btn-default a {
+  color: #333;
+}
+.btn-default {
+  background-color: #ccc;
+}
+.message_title {
+  height:140px;
+}
+textarea{
+  min-width: 50%;
+  min-height: 70%;
+}
+.btn-wrapper {
+  margin-top: 10px;
 }

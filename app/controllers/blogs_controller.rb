@@ -8,14 +8,18 @@ class BlogsController < ApplicationController
   end
   def confirm
     @blog = Blog.new(blog_params)
-    render :new if @blog.invalid
+    render :new if @blog.invalid?
   end
   def create
     @blog = Blog.new(blog_params)
-    if @bog.save
-      redirect_to blogs_path, notice: "ブログを投稿しました"
-    else
+    if params[:back]
       render :new
+    else
+      if @blog.save
+        redirect_to blogs_path, notice: "ブログを投稿しました"
+      else
+        render :new
+      end
     end
   end
   def edit
@@ -37,6 +41,6 @@ class BlogsController < ApplicationController
     params.require(:blog).permit(:content)
   end
   def set_blog
-    @blog = blog.find(params[:id])
+    @blog = Blog.find(params[:id])
   end
 end
