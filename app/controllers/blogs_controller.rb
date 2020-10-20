@@ -9,11 +9,12 @@ class BlogsController < ApplicationController
     @blog = Blog.new
   end
   def confirm
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.build(blog_params) #同じ
     render :new if @blog.invalid?
   end
   def create
-    @blog = Blog.new(blog_params)
+    @blog = Blog.new(blog_params) #同じ
+    @blog.user_id = current_user.id #同じ
     if params[:back]
       render :new
     else
