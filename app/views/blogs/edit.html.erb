@@ -12,9 +12,12 @@
   <% end %>
   <div class="blog_title">
     <%= form.label :content %>
-    <br><%= form.text_area :content %>
+    <br><%= form.text_area :content %><br>
+    <br><%= form.label :image %>
+    <br><%= image_tag @blog.image.url, class: "image_tag" %>
+    <br><%= form.file_field :image %>
   </div>
-    <input type="submit" name="commit" value="投稿を編集する" data-disable-with="投稿を編集中･･･">
+  <input type="submit" name="commit" value="投稿を編集する" data-disable-with="投稿を編集中･･･">
 <% end %>
 <div class="btn-wrapper">
   <button class="btn btn-warning">

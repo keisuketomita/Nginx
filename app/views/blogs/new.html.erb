@@ -10,9 +10,13 @@
       </ul>
     </div>
   <% end %>
-  <div class="blog_title">
+  <div class="blog_wrapper">
     <%= form.label :content %>
     <br><%= form.text_area :content %>
+    <br><%= form.label :image %>
+    <br><%= image_tag(@blog.image.url, class: "image_tag" ) if @blog.image && @blog.image.url %>
+    <br><%= form.file_field :image %>
+    <br><%= form.hidden_field :image_cache %>
   </div>
   <input type="submit" name="commit" value="投稿" data-disable-with="投稿中･･･">
 <% end %>

@@ -1,8 +1,11 @@
 <h3>以下の内容で、送信する。</h3>
 <%= form_with(model: @blog, local: true, url:blogs_path) do |form| %>
   <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
   <p>投稿内容</p>
   <%= @blog.content %>
+  <p>投稿画像</p>
+  <%= image_tag(@blog.image.url, class: "image_tag" ) if @blog.image && @blog.image.url %>
   <div class="btn-wrapper">
     <%= form.submit  "投稿する" %>
     <%= form.submit "戻る", name: 'back' %>
